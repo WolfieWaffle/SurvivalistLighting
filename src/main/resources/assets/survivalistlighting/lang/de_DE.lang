@@ -1,0 +1,13 @@
+# Realistic Torches - Language File
+# GERMANY - GERMAN
+
+# BLOCKS
+tile.hardcoretorches.torch_unlit.name=Nicht angezündete Fackel
+tile.hardcoretorches.torch_lit.name=Angezündete Fackel
+tile.hardcoretorches.torch_smoldering.name=Glimmende Fackel
+
+
+# ITEMS
+item.hardcoretorches.matchbox.name=Zündholzschachtel
+item.hardcoretorches.glowstone_crystal.name=Glowstonekristall
+item.hardcoretorches.glowstone_paste.name=Glowstonekleister

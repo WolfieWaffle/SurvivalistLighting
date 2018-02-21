@@ -1,0 +1,16 @@
+{
+    "type": "forge:ore_shapeless",
+    "group": "torches",
+    "ingredients": [
+        {
+            "item": "survivalistlighting:torch_burnt",
+            "data": 0,
+            "count": 1
+        }
+    ],
+    "result": {
+        "item": "minecraft:stick",
+        "data": 0,
+        "count": 1
+    }
+}

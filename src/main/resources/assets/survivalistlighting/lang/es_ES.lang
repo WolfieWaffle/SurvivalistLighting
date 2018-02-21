@@ -1,0 +1,13 @@
+# Realistic Torches - Language File
+# SPAIN - ESPANOL
+
+# BLOCKS
+tile.hardcoretorches.torch_unlit.name=Antorcha Apagada
+tile.hardcoretorches.torch_lit.name=Antorcha Iluminado
+tile.hardcoretorches.torch_smoldering.name=Antorcha Ardiente
+
+
+# ITEMS
+item.hardcoretorches.matchbox.name=Caja de Cerillas
+item.hardcoretorches.glowstone_crystal.name=Piedra luminosa cristal
+item.hardcoretorches.glowstone_paste.name=Piedra luminosa barro

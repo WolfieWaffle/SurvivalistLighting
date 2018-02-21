@@ -1,0 +1,17 @@
+# Realistic Torches - Language File
+# UNITED STATES - ENGLISH
+
+# BLOCKS
+tile.survivalistlighting.torch_unlit.name=Unlit Torch
+tile.survivalistlighting.torch_lit.name=Lit Torch
+tile.survivalistlighting.torch_smoldering.name=Smoldering Torch
+tile.survivalistlighting.torch_burnt.name=Burnt Torch
+tile.survivalistlighting.lantern_lit.name=Lit Lantern
+tile.survivalistlighting.lantern_unlit.name=Unlit Lantern
+
+
+# ITEMS
+item.survivalistlighting.matchbox.name=Matchbox
+item.survivalistlighting.glowstone_crystal.name=Glowstone Crystal
+item.survivalistlighting.glowstone_paste.name=Glowstone Paste
+item.survivalistlighting.oilcan.name=Lantern Oil Can

@@ -1,0 +1,13 @@
+# Realistic Torches - Language File
+# POLAND - POLISH
+
+# BLOCKS
+tile.hardcoretorches.torch_unlit.name=Zgaszona Pochodnia
+tile.hardcoretorches.torch_lit.name=Płonąca Pochodnia
+tile.hardcoretorches.torch_smoldering.name=Tląca Pochodnia
+
+
+# ITEMS
+item.hardcoretorches.matchbox.name=Pudełko Zapałek
+item.hardcoretorches.glowstone_crystal.name=Kryształ Jasnogłazu
+item.hardcoretorches.glowstone_paste.name=Kryształ Papka

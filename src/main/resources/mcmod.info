@@ -1,13 +1,13 @@
 [
 {
-  "modid": "realistictorches",
-  "name": "Realistic Torches",
+  "modid": "survivalistlighting",
+  "name": "Survivalist Lighting",
   "description": "Increases the difficulty of the early game by adding realism mechanics to torches.",
   "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "https://minecraft.curseforge.com/projects/realistic-torches",
   "updateUrl": "",
-  "authorList": ["ChaosTheDude"],
+  "authorList": ["ChaosTheDude (Creator of original mod)", Wolfie_Waffle ("Hardcore" modifications)"],
   "credits": "",
   "logoFile": "",
   "screenshots": [],

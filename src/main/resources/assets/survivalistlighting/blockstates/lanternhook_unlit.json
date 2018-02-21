@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "facing=east": { "model": "survivalistlighting:lanternhook_unlit" , "y": -90 },
+        "facing=south": { "model": "survivalistlighting:lanternhook_unlit", "y": 0 },
+        "facing=west": { "model": "survivalistlighting:lanternhook_unlit", "y": 90 },
+        "facing=north": { "model": "survivalistlighting:lanternhook_unlit", "y": 180 }
+    }
+}

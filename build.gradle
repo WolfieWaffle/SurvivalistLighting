@@ -4,15 +4,15 @@ buildscript {
         maven { url = "http://files.minecraftforge.net/maven" }
     }
     dependencies {
-        classpath 'net.minecraftforge.gradle:ForgeGradle:2.2-SNAPSHOT'
+        classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
     }
 }
 apply plugin: 'net.minecraftforge.gradle.forge'
 
 
-version = "1.11.2-2.1.0"
-group = "com.chaosthedude.realistictorches"
-archivesBaseName = "RealisticTorches"
+version = "1.12.2-1"
+group = "com.github.wolfiewaffle.survivalistlighting"
+archivesBaseName = "survivalistlighting"
 
 sourceCompatibility = targetCompatibility = "1.6"
 compileJava {
@@ -20,7 +20,7 @@ compileJava {
 }
 
 minecraft {
-    version = "1.11.2-13.20.0.2226"
+    version = "1.12.2-14.23.1.2600"
     runDir = "run"
     mappings = "snapshot_20161220"
 }

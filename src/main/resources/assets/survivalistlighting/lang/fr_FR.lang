@@ -1,0 +1,12 @@
+# Realistic Torches - Language File
+# FRANCE - FRENCH
+
+# BLOCKS
+tile.hardcoretorches.torch_unlit.name=Torche éteinte
+tile.hardcoretorches.torch_lit.name=Lit Torche allumé
+tile.hardcoretorches.torch_smoldering.name=Torche fumant
+
+
+# ITEMS
+item.hardcoretorches.matchbox.name=Boîte d'allumettes
+item.hardcoretorches.glowstone_crystal.name=Pierre lumineuse colle

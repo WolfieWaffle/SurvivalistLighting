@@ -1,0 +1,13 @@
+# Realistic Torches - Language File
+# BRAZIL - PORTUGEUSE
+
+# BLOCKS
+tile.hardcoretorches.torch_unlit.name=Tocha Apagada
+tile.hardcoretorches.torch_lit.name=Tocha Iluminada
+tile.hardcoretorches.torch_smoldering.name=Tocha Latente
+
+
+# ITEMS
+item.hardcoretorches.matchbox.name=Caixa de Fósforo
+item.hardcoretorches.glowstone_crystal.name=Cristal de Pedra Luminosa
+item.hardcoretorches.glowstone_paste.name=Lodo de Pedra Luminosa

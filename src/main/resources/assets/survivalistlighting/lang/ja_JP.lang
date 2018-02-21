@@ -1,0 +1,13 @@
+# Realistic Torches - Language File
+# JAPAN - JAPANESE
+
+# BLOCKS
+tile.hardcoretorches.torch_unlit.name=消灯トーチ
+tile.hardcoretorches.torch_lit.name=点灯トーチ
+tile.hardcoretorches.torch_smoldering.name=トーチをくすぶっ
+
+
+# ITEMS
+item.hardcoretorches.matchbox.name=マッチボックス
+item.hardcoretorches.glowstone_crystal.name=グロウストーン クリスタル
+item.hardcoretorches.glowstone_paste.name=グロウストーン ペースト

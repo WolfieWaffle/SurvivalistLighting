@@ -1,0 +1,6 @@
+{
+    "parent": "block/torch_wall",
+    "textures": {
+        "torch": "survivalistlighting:blocks/torch_lit"
+    }
+}

@@ -1,0 +1,9 @@
+{
+    "variants": {
+        "facing=up": { "model": "survivalistlighting:torch_burnt" },
+        "facing=east": { "model": "survivalistlighting:torch_burnt_wall" },
+        "facing=south": { "model": "survivalistlighting:torch_burnt_wall", "y": 90 },
+        "facing=west": { "model": "survivalistlighting:torch_burnt_wall", "y": 180 },
+        "facing=north": { "model": "survivalistlighting:torch_burnt_wall", "y": 270 }
+    }
+}
