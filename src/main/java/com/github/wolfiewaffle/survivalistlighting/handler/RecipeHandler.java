@@ -15,8 +15,10 @@ public class RecipeHandler {
 	@SubscribeEvent
 	public static void removeRecipes(RegistryEvent.Register<IRecipe> event) {
 		ResourceLocation torch = new ResourceLocation("minecraft:torch");
+		ResourceLocation torch2 = new ResourceLocation("forge:torch");
 		IForgeRegistryModifiable modRegistry = (IForgeRegistryModifiable) event.getRegistry();
 		modRegistry.remove(torch);
+		modRegistry.remove(torch2);
 	}
 
 }

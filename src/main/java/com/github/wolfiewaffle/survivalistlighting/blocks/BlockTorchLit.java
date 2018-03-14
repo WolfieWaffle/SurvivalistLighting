@@ -4,9 +4,7 @@ import java.util.Random;
 
 import com.github.wolfiewaffle.survivalistlighting.SurvivalistLighting;
 import com.github.wolfiewaffle.survivalistlighting.config.ConfigHandler;
-import com.github.wolfiewaffle.survivalistlighting.items.ModItems;
 
-import net.minecraft.block.BlockTorch;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;

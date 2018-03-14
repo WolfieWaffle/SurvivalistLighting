@@ -22,19 +22,19 @@ public class ItemTorchUnlit extends ItemBlock {
 	}
 
 	@Override
-	public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
-		Block block = worldIn.getBlockState(pos).getBlock();
+	public EnumActionResult onItemUseFirst(EntityPlayer player, World world, BlockPos pos, EnumFacing side, float hitX, float hitY, float hitZ, EnumHand hand) {
+		Block block = world.getBlockState(pos).getBlock();
 
 		if (Loader.isModLoaded("toughasnails")) {
 			if (block == TANBlocks.campfire) {
-				if (worldIn.getBlockState(pos).getValue(BlockTANCampfire.BURNING)) {
+				if (world.getBlockState(pos).getValue(BlockTANCampfire.BURNING)) {
 					lightTorch(player, hand);
-					return EnumActionResult.FAIL;
+					return EnumActionResult.SUCCESS;
 				}
 			}
 		}
 
-		return super.onItemUse(player, worldIn, pos, hand, facing, hitX, hitY, hitZ);
+		return super.onItemUseFirst(player, world, pos, side, hitX, hitY, hitZ, hand);
 	}
 
 	private void lightTorch(EntityPlayer player, EnumHand hand) {

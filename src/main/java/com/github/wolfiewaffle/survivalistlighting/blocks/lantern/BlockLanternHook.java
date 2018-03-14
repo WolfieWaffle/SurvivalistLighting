@@ -47,7 +47,6 @@ public class BlockLanternHook extends Block {
 	public BlockLanternHook() {
 		super(Material.WOOD);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
-		this.setCreativeTab(CreativeTabs.REDSTONE);
 		this.setTickRandomly(false);
 	}
 

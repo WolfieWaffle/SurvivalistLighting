@@ -42,7 +42,6 @@ public class BlockLanternHookUnlit extends BlockHardcoreLantern {
 	public BlockLanternHookUnlit() {
 		super(Material.WOOD);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
-		this.setCreativeTab(CreativeTabs.REDSTONE);
 		this.setTickRandomly(false);
 	}
 
