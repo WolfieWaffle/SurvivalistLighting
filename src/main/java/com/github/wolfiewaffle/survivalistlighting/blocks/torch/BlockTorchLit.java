@@ -20,9 +20,16 @@ import net.minecraft.world.World;
 
 public class BlockTorchLit extends BlockHardcoreTorch {
 
-	public static final String NAME = "torch_lit";
 	private BlockTorchBurnt burntVariant;
 	private BlockTorchUnlit unlitVariant;
+
+	public BlockTorchLit(String name) {
+		super(name);
+		setUnlocalizedName(SurvivalistLighting.MODID + "." + NAME);
+		setLightLevel(0.9375F);
+		setTickRandomly(true);
+		setLit(true);
+	}
 
 	public void setBurntVariant(BlockTorchBurnt burntVariant) {
 		this.burntVariant = burntVariant;
@@ -30,14 +37,6 @@ public class BlockTorchLit extends BlockHardcoreTorch {
 
 	public void setUnlitVariant(BlockTorchUnlit torchUnlit) {
 		this.unlitVariant = torchUnlit;
-	}
-
-	public BlockTorchLit() {
-		setUnlocalizedName(SurvivalistLighting.MODID + "." + NAME);
-		setLightLevel(0.9375F);
-		setTickRandomly(true);
-		setLit(true);
-		setCreativeTab(CreativeTabs.MISC);
 	}
 
 	@Override

@@ -1,6 +1,7 @@
 package com.github.wolfiewaffle.survivalistlighting.items.torch;
 
 import net.minecraft.block.Block;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
@@ -20,6 +21,7 @@ public class ItemTorchUnlit extends ItemBlock {
 
 	public ItemTorchUnlit(Block block) {
 		super(block);
+		this.setCreativeTab(CreativeTabs.MISC);
 	}
 
 	public void setLitVariant(ItemTorchLit litVariant) {

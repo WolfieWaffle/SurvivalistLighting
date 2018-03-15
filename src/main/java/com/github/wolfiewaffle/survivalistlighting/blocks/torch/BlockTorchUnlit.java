@@ -20,12 +20,11 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockTorchUnlit extends BlockHardcoreTorch {
 
-	public static final String NAME = "torch_unlit";
 	private BlockTorchLit litVariant;
-
-	public BlockTorchUnlit() {
+	
+	public BlockTorchUnlit(String name) {
+		super(name);
 		this.setUnlocalizedName(SurvivalistLighting.MODID + "." + NAME);
-		this.setCreativeTab(CreativeTabs.MISC);
 	}
 
 	public void setLitVariant(BlockTorchLit litTorch) {

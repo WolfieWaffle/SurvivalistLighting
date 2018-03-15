@@ -22,11 +22,11 @@ public class BlockTorchSmoldering extends BlockHardcoreTorch {
 
 	public static final String NAME = "torch_smoldering";
 
-	public BlockTorchSmoldering() {
+	public BlockTorchSmoldering(String name) {
+		super(name);
 		this.setUnlocalizedName(SurvivalistLighting.MODID + "." + NAME);
 		this.setLightLevel(0.65F);
 		this.setTickRandomly(true);
-		this.setCreativeTab(CreativeTabs.MISC);
 	}
 
 	@Override

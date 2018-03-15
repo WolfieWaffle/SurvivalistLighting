@@ -7,12 +7,10 @@ import com.github.wolfiewaffle.survivalistlighting.blocks.lantern.BlockLanternHo
 import com.github.wolfiewaffle.survivalistlighting.blocks.lantern.BlockLanternLit;
 import com.github.wolfiewaffle.survivalistlighting.blocks.lantern.BlockLanternUnlit;
 import com.github.wolfiewaffle.survivalistlighting.blocks.te.TELantern;
+import com.github.wolfiewaffle.survivalistlighting.blocks.torch.BlockHardcoreTorch;
 import com.github.wolfiewaffle.survivalistlighting.blocks.torch.BlockTorchBurnt;
 import com.github.wolfiewaffle.survivalistlighting.blocks.torch.BlockTorchLit;
 import com.github.wolfiewaffle.survivalistlighting.blocks.torch.BlockTorchSmoldering;
-import com.github.wolfiewaffle.survivalistlighting.blocks.torch.BlockTorchStoneBurnt;
-import com.github.wolfiewaffle.survivalistlighting.blocks.torch.BlockTorchStoneLit;
-import com.github.wolfiewaffle.survivalistlighting.blocks.torch.BlockTorchStoneUnlit;
 import com.github.wolfiewaffle.survivalistlighting.blocks.torch.BlockTorchUnlit;
 import com.github.wolfiewaffle.survivalistlighting.config.SurvivalistLightingConfigTorches;
 
@@ -29,9 +27,9 @@ public class ModBlocks {
 	public static BlockTorchBurnt torchBurnt;
 	public static BlockTorchUnlit torchUnlit;
 	public static BlockTorchLit torchLit;
-	public static BlockTorchStoneBurnt torchStoneBurnt;
-	public static BlockTorchStoneUnlit torchStoneUnlit;
-	public static BlockTorchStoneLit torchStoneLit;
+	public static BlockTorchBurnt torchStoneBurnt;
+	public static BlockTorchUnlit torchStoneUnlit;
+	public static BlockTorchLit torchStoneLit;
 	public static BlockTorchSmoldering torchSmoldering;
 	public static BlockLanternLit lanternLit;
 	public static BlockLanternUnlit lanternUnlit;
@@ -40,9 +38,9 @@ public class ModBlocks {
 
 	// @SubscribeEvent
 	public static void init(/* RegistryEvent.Register<Block> event */) {
-		torchBurnt = registerBlock(new BlockTorchBurnt(), BlockTorchBurnt.NAME, true);
-		torchUnlit = registerBlock(new BlockTorchUnlit(), BlockTorchUnlit.NAME, false);
-		torchLit = registerBlock(new BlockTorchLit(), BlockTorchLit.NAME, false);
+		torchBurnt = registerBlock(new BlockTorchBurnt("torch_burnt"), true);
+		torchUnlit = registerBlock(new BlockTorchUnlit("torch_unlit"), false);
+		torchLit = registerBlock(new BlockTorchLit("torch_lit"), false);
 
 		torchLit.setBurntVariant(torchBurnt);
 		torchLit.setUnlitVariant(torchUnlit);
@@ -50,11 +48,11 @@ public class ModBlocks {
 
 		// Stone Torches
 		if (SurvivalistLightingConfigTorches.enableStoneTorches)
-			torchStoneBurnt = registerBlock(new BlockTorchStoneBurnt(), BlockTorchStoneBurnt.NAME, true);
+			torchStoneBurnt = registerBlock(new BlockTorchBurnt("torch_stone_burnt"), true);
 		if (SurvivalistLightingConfigTorches.enableStoneTorches)
-			torchStoneUnlit = registerBlock(new BlockTorchStoneUnlit(), BlockTorchStoneUnlit.NAME, false);
+			torchStoneUnlit = registerBlock(new BlockTorchUnlit("torch_stone_unlit"), false);
 		if (SurvivalistLightingConfigTorches.enableStoneTorches)
-			torchStoneLit = registerBlock(new BlockTorchStoneLit(), BlockTorchStoneLit.NAME, false);
+			torchStoneLit = registerBlock(new BlockTorchLit("torch_stone_lit"), false);
 
 		if (SurvivalistLightingConfigTorches.enableStoneTorches)
 			torchStoneLit.setBurntVariant(torchStoneBurnt);
@@ -73,6 +71,18 @@ public class ModBlocks {
 		//lanternHookUnlit = registerBlock(new BlockLanternHookUnlit(), BlockLanternHookUnlit.NAME, true);
 
 		GameRegistry.registerTileEntity(TELantern.class, TELantern.NAME);
+	}
+
+	protected static <T extends BlockHardcoreTorch> T registerBlock(T blockType, boolean genItemBlock) {
+		T block = blockType;
+		String name = blockType.NAME;
+		block.setRegistryName(name);
+		ForgeRegistries.BLOCKS.register(block);
+		if (genItemBlock)
+			ForgeRegistries.ITEMS.register(new ItemBlock(block).setRegistryName(name).setCreativeTab(CreativeTabs.MISC));
+		REGISTRY.add(block);
+
+		return block;
 	}
 
 	protected static <T extends Block> T registerBlock(T blockType, String name, boolean genItemBlock) {

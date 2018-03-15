@@ -22,12 +22,11 @@ public class ItemSurvivalLantern extends ItemBlock {
 		setUnlocalizedName(SurvivalistLighting.MODID + "." + NAME);
 		setMaxStackSize(1);
 		setMaxDamage(SurvivalistLightingConfigTorches.lanternFuel);
-		setCreativeTab(CreativeTabs.TOOLS);
 		setNoRepair();
 	}
 
-	/*
-	 * Used to drain the fuel of the lantern
+	/**
+	 * Used to drain the fuel of the lantern.
 	 */
 	@Override
 	public void onUpdate(ItemStack stack, World world, Entity entityIn, int itemSlot, boolean isSelected) {

@@ -4,6 +4,7 @@ import com.github.wolfiewaffle.survivalistlighting.config.SurvivalistLightingCon
 
 import net.minecraft.block.BlockTorch;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
@@ -12,9 +13,15 @@ import net.minecraft.world.World;
 public class BlockHardcoreTorch extends BlockTorch {
 
 	private boolean isLit;
+	public final String NAME;
+
+	public BlockHardcoreTorch(String name) {
+		this.NAME = name;
+		this.setCreativeTab(CreativeTabs.MISC);
+	}
 
 	public void extinguish(World world, BlockPos pos, boolean extinguishFully) {
-
+		
 	}
 
 	public void updateTorch(World world, BlockPos pos) {

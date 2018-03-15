@@ -1,6 +1,7 @@
 package com.github.wolfiewaffle.survivalistlighting.items.torch;
 
 import net.minecraft.block.Block;
+import net.minecraft.creativetab.CreativeTabs;
 
 public class ItemTorchStoneLit extends ItemTorchLit {
 
@@ -8,6 +9,7 @@ public class ItemTorchStoneLit extends ItemTorchLit {
 
 	public ItemTorchStoneLit(Block block) {
 		super(block);
+		this.setCreativeTab(CreativeTabs.MISC);
 	}
 
 }

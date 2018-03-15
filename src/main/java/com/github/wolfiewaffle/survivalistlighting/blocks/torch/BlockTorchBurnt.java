@@ -15,11 +15,9 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockTorchBurnt extends BlockHardcoreTorch {
 
-	public static final String NAME = "torch_burnt";
-
-	public BlockTorchBurnt() {
+	public BlockTorchBurnt(String name) {
+		super(name);
 		setUnlocalizedName(SurvivalistLighting.MODID + "." + NAME);
-		setCreativeTab(CreativeTabs.MISC);
 	}
 
 	@Override
