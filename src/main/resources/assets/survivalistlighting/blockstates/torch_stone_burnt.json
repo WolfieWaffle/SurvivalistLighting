@@ -1,9 +1,13 @@
 {
+    "forge_marker": 1,
+    "defaults": {
+        "textures": {"torch": "survivalistlighting:blocks/torch_stone_burnt"}
+    },
     "variants": {
-        "facing=up": { "model": "survivalistlighting:torch_stone_burnt" },
-        "facing=east": { "model": "survivalistlighting:torch_stone_burnt_wall" },
-        "facing=south": { "model": "survivalistlighting:torch_stone_burnt_wall", "y": 90 },
-        "facing=west": { "model": "survivalistlighting:torch_stone_burnt_wall", "y": 180 },
-        "facing=north": { "model": "survivalistlighting:torch_stone_burnt_wall", "y": 270 }
+        "facing=up": { "model": "torch" },
+        "facing=east": { "model": "torch_wall"},
+        "facing=south": { "model": "torch_wall", "y": 90 },
+        "facing=west": { "model": "torch_wall", "y": 180 },
+        "facing=north": { "model": "torch_wall", "y": 270 }
     }
 }

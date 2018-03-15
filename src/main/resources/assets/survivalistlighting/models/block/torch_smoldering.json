@@ -1,6 +1,0 @@
-{
-    "parent": "block/torch",
-    "textures": {
-        "torch": "survivalistlighting:blocks/torch_smoldering"
-    }
-}

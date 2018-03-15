@@ -1,9 +1,13 @@
 {
+    "forge_marker": 1,
+    "defaults": {
+        "textures": {"torch": "survivalistlighting:blocks/torch_smoldering"}
+    },
     "variants": {
-        "facing=up": { "model": "survivalistlighting:torch_smoldering" },
-        "facing=east": { "model": "survivalistlighting:torch_smoldering_wall" },
-        "facing=south": { "model": "survivalistlighting:torch_smoldering_wall", "y": 90 },
-        "facing=west": { "model": "survivalistlighting:torch_smoldering_wall", "y": 180 },
-        "facing=north": { "model": "survivalistlighting:torch_smoldering_wall", "y": 270 }
+        "facing=up": { "model": "torch" },
+        "facing=east": { "model": "torch_wall"},
+        "facing=south": { "model": "torch_wall", "y": 90 },
+        "facing=west": { "model": "torch_wall", "y": 180 },
+        "facing=north": { "model": "torch_wall", "y": 270 }
     }
 }
