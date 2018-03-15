@@ -6,7 +6,6 @@ import com.github.wolfiewaffle.survivalistlighting.config.SurvivalistLightingCon
 
 import net.minecraft.block.Block;
 import net.minecraft.client.entity.EntityPlayerSP;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemBlock;

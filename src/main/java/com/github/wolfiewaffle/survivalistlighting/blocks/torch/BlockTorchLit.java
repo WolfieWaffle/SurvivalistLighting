@@ -7,7 +7,6 @@ import com.github.wolfiewaffle.survivalistlighting.blocks.ModBlocks;
 import com.github.wolfiewaffle.survivalistlighting.config.SurvivalistLightingConfigTorches;
 
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -22,6 +21,7 @@ public class BlockTorchLit extends BlockHardcoreTorch {
 
 	private BlockTorchBurnt burntVariant;
 	private BlockTorchUnlit unlitVariant;
+	private int burnoutChanceMultiplier = 1;
 
 	public BlockTorchLit(String name) {
 		super(name);
@@ -37,6 +37,10 @@ public class BlockTorchLit extends BlockHardcoreTorch {
 
 	public void setUnlitVariant(BlockTorchUnlit torchUnlit) {
 		this.unlitVariant = torchUnlit;
+	}
+
+	public void setBurnoutMult(int i) {
+		this.burnoutChanceMultiplier = (int) Math.max(0.1, i);
 	}
 
 	@Override
@@ -67,7 +71,7 @@ public class BlockTorchLit extends BlockHardcoreTorch {
 			if (world.isRainingAt(pos)) {
 				extinguish(world, pos, true);
 			} else {
-				world.scheduleUpdate(pos, this, (int) (SurvivalistLightingConfigTorches.torchBurnoutChance * 0.9));
+				world.scheduleUpdate(pos, this, (int) (burnoutChanceMultiplier * SurvivalistLightingConfigTorches.torchBurnoutChance * 0.9));
 			}
 		}
 	}

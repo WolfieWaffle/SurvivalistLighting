@@ -1,9 +1,7 @@
 package com.github.wolfiewaffle.survivalistlighting.items.torch;
 
 import net.minecraft.block.Block;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumFacing;
@@ -14,14 +12,12 @@ import net.minecraftforge.fml.common.Loader;
 import toughasnails.api.TANBlocks;
 import toughasnails.block.BlockTANCampfire;
 
-public class ItemTorchUnlit extends ItemBlock {
+public class ItemTorchUnlit extends ItemHardcoreTorch {
 
-	public static final String NAME = "torch_unlit";
 	private ItemTorchLit litVariant;
 
-	public ItemTorchUnlit(Block block) {
-		super(block);
-		this.setCreativeTab(CreativeTabs.MISC);
+	public ItemTorchUnlit(String name, Block block) {
+		super(name, block);
 	}
 
 	public void setLitVariant(ItemTorchLit litVariant) {

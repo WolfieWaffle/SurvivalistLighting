@@ -5,12 +5,11 @@ import java.util.ArrayList;
 import com.github.wolfiewaffle.survivalistlighting.SurvivalistLighting;
 import com.github.wolfiewaffle.survivalistlighting.blocks.ModBlocks;
 import com.github.wolfiewaffle.survivalistlighting.config.SurvivalistLightingConfigTorches;
+import com.github.wolfiewaffle.survivalistlighting.items.torch.ItemHardcoreTorch;
 import com.github.wolfiewaffle.survivalistlighting.items.torch.ItemLanternLit;
 import com.github.wolfiewaffle.survivalistlighting.items.torch.ItemLanternUnlit;
 import com.github.wolfiewaffle.survivalistlighting.items.torch.ItemOilcan;
 import com.github.wolfiewaffle.survivalistlighting.items.torch.ItemTorchLit;
-import com.github.wolfiewaffle.survivalistlighting.items.torch.ItemTorchStoneLit;
-import com.github.wolfiewaffle.survivalistlighting.items.torch.ItemTorchStoneUnlit;
 import com.github.wolfiewaffle.survivalistlighting.items.torch.ItemTorchUnlit;
 
 import net.minecraft.creativetab.CreativeTabs;
@@ -34,17 +33,26 @@ public class ModItems {
 	public static void init() {
 		glowstoneCrystal = registerItem(new Item().setUnlocalizedName(SurvivalistLighting.MODID + ".glowstone_crystal").setCreativeTab(CreativeTabs.MATERIALS), "glowstone_crystal");
 		oilcan = registerItem(new ItemOilcan(), ItemOilcan.NAME);
-		lanternLit = registerItem(new ItemLanternLit(ModBlocks.lanternLit), ItemLanternLit.NAME);
-		lanternUnlit = registerItem(new ItemLanternUnlit(ModBlocks.lanternUnlit), ItemLanternUnlit.NAME);
-		torchLit = registerItem(new ItemTorchLit(ModBlocks.torchLit), ItemTorchLit.NAME);
-		torchUnlit = registerItem(new ItemTorchUnlit(ModBlocks.torchUnlit), ItemTorchUnlit.NAME);
+		lanternLit = registerItem(new ItemLanternLit(ModBlocks.lanternLit), "lantern_lit");
+		lanternUnlit = registerItem(new ItemLanternUnlit(ModBlocks.lanternUnlit), "lantern_unlit");
+		torchLit = registerItem(new ItemTorchLit("torch_lit", ModBlocks.torchLit));
+		torchUnlit = registerItem(new ItemTorchUnlit("torch_unlit", ModBlocks.torchUnlit));
 		torchUnlit.setLitVariant(torchLit);
 		if (SurvivalistLightingConfigTorches.enableStoneTorches)
-			torchStoneLit = registerItem(new ItemTorchStoneLit(ModBlocks.torchStoneLit), ItemTorchStoneLit.NAME);
+			torchStoneLit = registerItem(new ItemTorchLit("torch_stone_lit", ModBlocks.torchStoneLit));
 		if (SurvivalistLightingConfigTorches.enableStoneTorches)
-			torchStoneUnlit = registerItem(new ItemTorchStoneUnlit(ModBlocks.torchStoneUnlit), ItemTorchStoneUnlit.NAME);
+			torchStoneUnlit = registerItem(new ItemTorchUnlit("torch_stone_unlit", ModBlocks.torchStoneUnlit));
 		if (SurvivalistLightingConfigTorches.enableStoneTorches)
 			torchStoneUnlit.setLitVariant(torchStoneLit);
+	}
+
+	protected static <T extends ItemHardcoreTorch> T registerItem(T itemType) {
+		T item = itemType;
+		item.setRegistryName(item.NAME);
+		ForgeRegistries.ITEMS.register(item);
+		REGISTRY.add(item);
+
+		return item;
 	}
 
 	protected static <T extends Item> T registerItem(T itemType, String name) {
