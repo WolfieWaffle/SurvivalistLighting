@@ -1,12 +1,9 @@
-package com.github.wolfiewaffle.survivalistlighting.items;
-
-import java.util.List;
+package com.github.wolfiewaffle.survivalistlighting.items.torch;
 
 import com.github.wolfiewaffle.survivalistlighting.SurvivalistLighting;
-import com.github.wolfiewaffle.survivalistlighting.config.ConfigHandler;
+import com.github.wolfiewaffle.survivalistlighting.config.SurvivalistLightingConfigTorches;
 
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -19,7 +16,7 @@ public class ItemOilcan extends Item {
 		super();
 		setUnlocalizedName(SurvivalistLighting.MODID + "." + NAME);
 		setMaxStackSize(1);
-		setMaxDamage(ConfigHandler.oilCanFuel);
+		setMaxDamage(SurvivalistLightingConfigTorches.oilcanFuel);
 		setCreativeTab(CreativeTabs.TOOLS);
 		setNoRepair();
 	}
@@ -47,7 +44,7 @@ public class ItemOilcan extends Item {
 
 	@Override
 	public double getDurabilityForDisplay(ItemStack stack) {
-		return 1 - ((double) stack.getTagCompound().getInteger("Fuel") / (double) ConfigHandler.oilCanFuel);
+		return 1 - ((double) stack.getTagCompound().getInteger("Fuel") / (double) SurvivalistLightingConfigTorches.oilcanFuel);
 	}
 
 	/*@SuppressWarnings({ "unchecked", "rawtypes" })

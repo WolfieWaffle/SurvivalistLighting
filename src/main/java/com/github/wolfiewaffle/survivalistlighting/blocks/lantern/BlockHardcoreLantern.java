@@ -3,7 +3,7 @@ package com.github.wolfiewaffle.survivalistlighting.blocks.lantern;
 import com.github.wolfiewaffle.survivalistlighting.SurvivalistLighting;
 import com.github.wolfiewaffle.survivalistlighting.blocks.ModBlocks;
 import com.github.wolfiewaffle.survivalistlighting.blocks.te.TELantern;
-import com.github.wolfiewaffle.survivalistlighting.config.ConfigHandler;
+import com.github.wolfiewaffle.survivalistlighting.config.SurvivalistLightingConfigTorches;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.ITileEntityProvider;
@@ -93,7 +93,7 @@ public class BlockHardcoreLantern extends Block implements ITileEntityProvider {
 	public void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase placer, ItemStack stack) {
 		if (!world.isRemote) {
 			TELantern te = ((TELantern) world.getTileEntity(pos));
-			int fuel = ConfigHandler.lanternFuel - stack.getItemDamage();
+			int fuel = SurvivalistLightingConfigTorches.lanternFuel - stack.getItemDamage();
 
 			te.setFuel(fuel);
 			playerMetalSound(world, pos);
@@ -108,7 +108,7 @@ public class BlockHardcoreLantern extends Block implements ITileEntityProvider {
 		Block lantern = world.getBlockState(pos).getBlock();
 		if (lantern instanceof BlockHardcoreLantern) {
 			TELantern te = ((TELantern) world.getTileEntity(pos));
-			int fuel = ConfigHandler.lanternFuel - te.getFuel();
+			int fuel = SurvivalistLightingConfigTorches.lanternFuel - te.getFuel();
 
 			if (te.isLit()) {
 				lantern = ModBlocks.lanternLit;
@@ -249,7 +249,7 @@ public class BlockHardcoreLantern extends Block implements ITileEntityProvider {
 			}
 
 			int maxLanternSubtract = te.getFuel();
-			int maxOilcanAdd = ConfigHandler.lanternFuel - stack.getTagCompound().getInteger("Fuel");
+			int maxOilcanAdd = SurvivalistLightingConfigTorches.lanternFuel - stack.getTagCompound().getInteger("Fuel");
 			int change = Math.min(maxLanternSubtract, maxOilcanAdd);
 
 			System.out.println("CHANGE" + change);

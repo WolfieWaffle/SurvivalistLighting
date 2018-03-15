@@ -3,16 +3,10 @@ package com.github.wolfiewaffle.survivalistlighting;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.github.wolfiewaffle.survivalistlighting.blocks.ModBlocks;
-import com.github.wolfiewaffle.survivalistlighting.config.ConfigHandler;
-import com.github.wolfiewaffle.survivalistlighting.items.ModItems;
+import com.github.wolfiewaffle.survivalistlighting.config.SurvivalistLightingConfig;
 import com.github.wolfiewaffle.survivalistlighting.proxy.CommonProxy;
 import com.github.wolfiewaffle.survivalistlighting.worldgen.TorchGenerator;
 
-import net.minecraft.block.Block;
-import net.minecraft.client.renderer.block.model.ModelResourceLocation;
-import net.minecraft.item.Item;
-import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -38,12 +32,8 @@ public class SurvivalistLighting {
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
+		SurvivalistLightingConfig.load(event);
 		proxy.preInit(event);
-		//HardcoreTorchesBlocks.register();
-		//HardcoreTorchesItems.register();
-
-		ConfigHandler.loadConfig(event.getSuggestedConfigurationFile());
-		ConfigHandler.printConfigInfo();
 
 		GameRegistry.registerWorldGenerator(new TorchGenerator(), 0);
 	}
@@ -51,15 +41,11 @@ public class SurvivalistLighting {
 	@EventHandler
 	public void init(FMLInitializationEvent event) {
 		proxy.init(event);
-		//RecipeHandler.removeRecipe(new ItemStack(Blocks.TORCH));
-		//RecipeHandler.registerRecipes();
 	}
 
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event) {
 		proxy.postInit(event);
-		//RecipeHandler.removeRecipes();
-		//RecipeHandler.registerVanillaRecipes();
 	}
 
 }

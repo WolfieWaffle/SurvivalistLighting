@@ -1,8 +1,8 @@
-package com.github.wolfiewaffle.survivalistlighting.items;
+package com.github.wolfiewaffle.survivalistlighting.items.torch;
 
 import com.github.wolfiewaffle.survivalistlighting.SurvivalistLighting;
 import com.github.wolfiewaffle.survivalistlighting.blocks.ModBlocks;
-import com.github.wolfiewaffle.survivalistlighting.config.ConfigHandler;
+import com.github.wolfiewaffle.survivalistlighting.config.SurvivalistLightingConfigTorches;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.entity.EntityPlayerSP;
@@ -21,7 +21,7 @@ public class ItemSurvivalLantern extends ItemBlock {
 		super(block);
 		setUnlocalizedName(SurvivalistLighting.MODID + "." + NAME);
 		setMaxStackSize(1);
-		setMaxDamage(ConfigHandler.lanternFuel);
+		setMaxDamage(SurvivalistLightingConfigTorches.lanternFuel);
 		setCreativeTab(CreativeTabs.TOOLS);
 		setNoRepair();
 	}
@@ -36,7 +36,7 @@ public class ItemSurvivalLantern extends ItemBlock {
 				stack.attemptDamageItem(1, itemRand, (EntityPlayerMP) entityIn);
 			}
 		} else {
-			ItemStack newStack = new ItemStack(ModBlocks.lanternUnlit, 1, ConfigHandler.lanternFuel);
+			ItemStack newStack = new ItemStack(ModBlocks.lanternUnlit, 1, SurvivalistLightingConfigTorches.lanternFuel);
 			if (world.isRemote) {
 				((EntityPlayerSP) entityIn).inventory.setInventorySlotContents(itemSlot, newStack);
 			} else {

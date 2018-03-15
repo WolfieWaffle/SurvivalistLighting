@@ -4,9 +4,8 @@ import javax.annotation.Nullable;
 
 import com.github.wolfiewaffle.survivalistlighting.blocks.ModBlocks;
 import com.github.wolfiewaffle.survivalistlighting.blocks.te.TELantern;
-import com.github.wolfiewaffle.survivalistlighting.config.ConfigHandler;
-import com.github.wolfiewaffle.survivalistlighting.items.ModItems;
-import com.github.wolfiewaffle.survivalistlighting.items.ItemSurvivalLantern;
+import com.github.wolfiewaffle.survivalistlighting.config.SurvivalistLightingConfigTorches;
+import com.github.wolfiewaffle.survivalistlighting.items.torch.ItemSurvivalLantern;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockHorizontal;
@@ -15,10 +14,8 @@ import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockRenderLayer;
@@ -178,7 +175,7 @@ public class BlockLanternHook extends Block {
 		IBlockState state = world.getBlockState(pos);
 		state = ModBlocks.lanternHookUnlit.getStateFromMeta(getMetaFromState(state));
 		world.setBlockState(pos, state, 2);
-		((TELantern) world.getTileEntity(pos)).setFuel(ConfigHandler.lanternFuel - stack.getItemDamage());
+		((TELantern) world.getTileEntity(pos)).setFuel(SurvivalistLightingConfigTorches.lanternFuel - stack.getItemDamage());
 	}
 
 	/*

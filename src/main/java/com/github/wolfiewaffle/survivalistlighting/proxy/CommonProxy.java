@@ -1,7 +1,6 @@
 package com.github.wolfiewaffle.survivalistlighting.proxy;
 
 import com.github.wolfiewaffle.survivalistlighting.blocks.ModBlocks;
-import com.github.wolfiewaffle.survivalistlighting.handler.RecipeHandler;
 import com.github.wolfiewaffle.survivalistlighting.items.ModItems;
 
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;

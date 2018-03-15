@@ -1,16 +1,14 @@
-package com.github.wolfiewaffle.survivalistlighting.blocks;
+package com.github.wolfiewaffle.survivalistlighting.blocks.torch;
 
 import java.util.Random;
 
 import com.github.wolfiewaffle.survivalistlighting.SurvivalistLighting;
-import com.github.wolfiewaffle.survivalistlighting.config.ConfigHandler;
-import com.github.wolfiewaffle.survivalistlighting.items.ModItems;
+import com.github.wolfiewaffle.survivalistlighting.blocks.ModBlocks;
+import com.github.wolfiewaffle.survivalistlighting.config.SurvivalistLightingConfigTorches;
 
-import net.minecraft.block.BlockTorch;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
@@ -33,13 +31,13 @@ public class BlockTorchSmoldering extends BlockHardcoreTorch {
 
 	@Override
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float side, float hitX, float hitY) {
-		/*if (player.getHeldItem(hand).getItem() == HardcoreTorchesItems.glowstonePaste) {
-			world.setBlockState(pos, getState(world, pos, (BlockTorch) Blocks.TORCH));
-			if (!player.isCreative()) {
-				player.getHeldItem(hand).shrink(1);
-			}
-			return true;
-		}*/
+		/*
+		 * if (player.getHeldItem(hand).getItem() ==
+		 * HardcoreTorchesItems.glowstonePaste) { world.setBlockState(pos,
+		 * getState(world, pos, (BlockTorch) Blocks.TORCH)); if
+		 * (!player.isCreative()) { player.getHeldItem(hand).shrink(1); } return
+		 * true; }
+		 */
 
 		return super.onBlockActivated(world, pos, state, player, hand, facing, side, hitX, hitY);
 	}
@@ -50,7 +48,7 @@ public class BlockTorchSmoldering extends BlockHardcoreTorch {
 			if (world.isRainingAt(pos)) {
 				extinguish(world, pos, true);
 			} else {
-				world.scheduleUpdate(pos, this, (int) (ConfigHandler.torchBurnout / 10));
+				world.scheduleUpdate(pos, this, (int) (SurvivalistLightingConfigTorches.torchBurnoutChance / 10));
 			}
 		}
 	}
@@ -67,17 +65,17 @@ public class BlockTorchSmoldering extends BlockHardcoreTorch {
 
 	@Override
 	public Item getItemDropped(IBlockState state, Random random, int fortune) {
-		if (!ConfigHandler.noRelightEnabled) {
+		if (SurvivalistLightingConfigTorches.enableRelight) {
 			return Item.getItemFromBlock(ModBlocks.torchUnlit);
 		}
 
-		return null;
+		return Item.getItemFromBlock(ModBlocks.torchBurnt);
 	}
 
 	@Override
 	public void extinguish(World world, BlockPos pos, boolean extinguishFully) {
 		playExtinguishSound(world, pos);
-		if (!ConfigHandler.noRelightEnabled) {
+		if (SurvivalistLightingConfigTorches.enableRelight) {
 			world.setBlockState(pos, getState(world, pos, ModBlocks.torchUnlit), 2);
 		} else {
 			world.setBlockToAir(pos);

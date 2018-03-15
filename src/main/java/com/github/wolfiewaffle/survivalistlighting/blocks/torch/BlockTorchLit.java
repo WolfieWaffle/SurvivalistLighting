@@ -1,9 +1,10 @@
-package com.github.wolfiewaffle.survivalistlighting.blocks;
+package com.github.wolfiewaffle.survivalistlighting.blocks.torch;
 
 import java.util.Random;
 
 import com.github.wolfiewaffle.survivalistlighting.SurvivalistLighting;
-import com.github.wolfiewaffle.survivalistlighting.config.ConfigHandler;
+import com.github.wolfiewaffle.survivalistlighting.blocks.ModBlocks;
+import com.github.wolfiewaffle.survivalistlighting.config.SurvivalistLightingConfigTorches;
 
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
@@ -20,6 +21,16 @@ import net.minecraft.world.World;
 public class BlockTorchLit extends BlockHardcoreTorch {
 
 	public static final String NAME = "torch_lit";
+	private BlockTorchBurnt burntVariant;
+	private BlockTorchUnlit unlitVariant;
+
+	public void setBurntVariant(BlockTorchBurnt burntVariant) {
+		this.burntVariant = burntVariant;
+	}
+
+	public void setUnlitVariant(BlockTorchUnlit torchUnlit) {
+		this.unlitVariant = torchUnlit;
+	}
 
 	public BlockTorchLit() {
 		setUnlocalizedName(SurvivalistLighting.MODID + "." + NAME);
@@ -57,7 +68,7 @@ public class BlockTorchLit extends BlockHardcoreTorch {
 			if (world.isRainingAt(pos)) {
 				extinguish(world, pos, true);
 			} else {
-				world.scheduleUpdate(pos, this, (int) (ConfigHandler.torchBurnout * 0.9));
+				world.scheduleUpdate(pos, this, (int) (SurvivalistLightingConfigTorches.torchBurnoutChance * 0.9));
 			}
 		}
 	}
@@ -74,11 +85,11 @@ public class BlockTorchLit extends BlockHardcoreTorch {
 
 	@Override
 	public Item getItemDropped(IBlockState state, Random random, int fortune) {
-		if (!ConfigHandler.noRelightEnabled) {
-			return Item.getItemFromBlock(ModBlocks.torchUnlit);
+		if (SurvivalistLightingConfigTorches.enableRelight) {
+			return Item.getItemFromBlock(unlitVariant);
 		}
 
-		return Item.getItemFromBlock(ModBlocks.torchBurnt);
+		return Item.getItemFromBlock(burntVariant);
 	}
 
 	@Override
@@ -88,16 +99,16 @@ public class BlockTorchLit extends BlockHardcoreTorch {
 		if (!extinguishFully) {
 			world.setBlockState(pos, getState(world, pos, ModBlocks.torchSmoldering), 2);
 		} else {
-			world.setBlockState(pos, getState(world, pos, ModBlocks.torchBurnt), 2);
+			world.setBlockState(pos, getState(world, pos, burntVariant), 2);
 		}
 	}
 
 	public void unlight(World world, BlockPos pos) {
 		playExtinguishSound(world, pos);
 		spawnSmokePuff(world, pos);
-		world.setBlockState(pos, getState(world, pos, ModBlocks.torchUnlit), 2);
+		world.setBlockState(pos, getState(world, pos, unlitVariant), 2);
 	}
-	
+
 	protected void spawnSmokePuff(World world, BlockPos pos) {
 		final EnumFacing facing = world.getBlockState(pos).getValue(FACING);
 		final double x = (double) pos.getX() + 0.5D;
@@ -108,9 +119,11 @@ public class BlockTorchLit extends BlockHardcoreTorch {
 
 		if (facing.getAxis().isHorizontal()) {
 			final EnumFacing opposite = facing.getOpposite();
-			for (int i = 0; i < 3; i++) world.spawnParticle(EnumParticleTypes.SMOKE_LARGE, x + mod2 * (double) opposite.getFrontOffsetX(), y + mod1, z + mod2 * (double) opposite.getFrontOffsetZ(), 0.0D, 0.0D, 0.0D);
+			for (int i = 0; i < 3; i++)
+				world.spawnParticle(EnumParticleTypes.SMOKE_LARGE, x + mod2 * (double) opposite.getFrontOffsetX(), y + mod1, z + mod2 * (double) opposite.getFrontOffsetZ(), 0.0D, 0.0D, 0.0D);
 		} else {
-			for (int i = 0; i < 3; i++) world.spawnParticle(EnumParticleTypes.SMOKE_LARGE, x, y, z, 0.0D, 0.0D, 0.0D);
+			for (int i = 0; i < 3; i++)
+				world.spawnParticle(EnumParticleTypes.SMOKE_LARGE, x, y, z, 0.0D, 0.0D, 0.0D);
 		}
 	}
 

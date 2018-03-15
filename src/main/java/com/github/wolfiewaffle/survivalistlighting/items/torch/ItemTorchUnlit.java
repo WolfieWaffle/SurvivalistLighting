@@ -1,8 +1,9 @@
-package com.github.wolfiewaffle.survivalistlighting.items;
+package com.github.wolfiewaffle.survivalistlighting.items.torch;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
@@ -12,12 +13,17 @@ import net.minecraftforge.fml.common.Loader;
 import toughasnails.api.TANBlocks;
 import toughasnails.block.BlockTANCampfire;
 
-public class ItemTorchLit extends ItemBlock {
+public class ItemTorchUnlit extends ItemBlock {
 
-	public static final String NAME = "torch_lit";
+	public static final String NAME = "torch_unlit";
+	private ItemTorchLit litVariant;
 
-	public ItemTorchLit(Block block) {
+	public ItemTorchUnlit(Block block) {
 		super(block);
+	}
+
+	public void setLitVariant(ItemTorchLit litVariant) {
+		this.litVariant = litVariant;
 	}
 
 	@Override
@@ -27,12 +33,17 @@ public class ItemTorchLit extends ItemBlock {
 		if (Loader.isModLoaded("toughasnails")) {
 			if (block == TANBlocks.campfire) {
 				if (world.getBlockState(pos).getValue(BlockTANCampfire.BURNING)) {
-					return EnumActionResult.PASS;
+					lightTorch(player, hand);
+					return EnumActionResult.SUCCESS;
 				}
 			}
 		}
 
 		return super.onItemUseFirst(player, world, pos, side, hitX, hitY, hitZ, hand);
+	}
+
+	private void lightTorch(EntityPlayer player, EnumHand hand) {
+		player.setHeldItem(hand, new ItemStack(litVariant, player.getHeldItem(hand).getCount()));
 	}
 
 }

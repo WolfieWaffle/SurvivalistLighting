@@ -1,7 +1,7 @@
 package com.github.wolfiewaffle.survivalistlighting.blocks.te;
 
 import com.github.wolfiewaffle.survivalistlighting.blocks.ModBlocks;
-import com.github.wolfiewaffle.survivalistlighting.config.ConfigHandler;
+import com.github.wolfiewaffle.survivalistlighting.config.SurvivalistLightingConfigTorches;
 
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
@@ -11,7 +11,7 @@ public class TELantern extends TileEntity implements ITickable {
 
 	public static final String NAME = "te_lantern";
 	/* The ItemBlock uses durability which can be 0, but the TE extinguishes at 0, therefore it has 1 extra */
-	public static final int MAX_FUEL = ConfigHandler.lanternFuel;
+	public static final int MAX_FUEL = SurvivalistLightingConfigTorches.lanternFuel;
 
 	private int fuel;
 

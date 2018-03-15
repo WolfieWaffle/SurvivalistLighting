@@ -1,4 +1,4 @@
-package com.github.wolfiewaffle.survivalistlighting.items;
+package com.github.wolfiewaffle.survivalistlighting.items.torch;
 
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;

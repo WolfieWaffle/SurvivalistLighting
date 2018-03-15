@@ -35,6 +35,9 @@ public class ClientProxy extends CommonProxy {
 		registerModel(Item.getItemFromBlock(ModBlocks.torchLit));
 		registerModel(Item.getItemFromBlock(ModBlocks.torchSmoldering));
 		registerModel(Item.getItemFromBlock(ModBlocks.torchUnlit));
+		registerModel(Item.getItemFromBlock(ModBlocks.torchStoneBurnt));
+		registerModel(Item.getItemFromBlock(ModBlocks.torchStoneLit));
+		registerModel(Item.getItemFromBlock(ModBlocks.torchStoneUnlit));
 		registerModel(ModItems.glowstoneCrystal);
 		registerModel(ModItems.oilcan);
 	}

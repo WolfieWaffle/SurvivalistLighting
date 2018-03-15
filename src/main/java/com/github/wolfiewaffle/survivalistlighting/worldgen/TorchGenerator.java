@@ -3,7 +3,7 @@ package com.github.wolfiewaffle.survivalistlighting.worldgen;
 import java.util.Random;
 
 import com.github.wolfiewaffle.survivalistlighting.blocks.ModBlocks;
-import com.github.wolfiewaffle.survivalistlighting.config.ConfigHandler;
+import com.github.wolfiewaffle.survivalistlighting.config.SurvivalistLightingConfigTorches;
 
 import net.minecraft.block.BlockTorch;
 import net.minecraft.block.state.IBlockState;
@@ -18,7 +18,7 @@ public class TorchGenerator implements IWorldGenerator {
 
 	@Override
 	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
-		if (ConfigHandler.generateLitTorches) {
+		if (SurvivalistLightingConfigTorches.generateLitTorches) {
 			for (int x = 0; x < 16; x++) {
 				for (int y = 0; y < world.getHeight(); y++) {
 					for (int z = 0; z < 16; z++) {

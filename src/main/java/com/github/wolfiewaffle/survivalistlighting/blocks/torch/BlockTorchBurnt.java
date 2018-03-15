@@ -1,4 +1,4 @@
-package com.github.wolfiewaffle.survivalistlighting.blocks;
+package com.github.wolfiewaffle.survivalistlighting.blocks.torch;
 
 import java.util.Random;
 
