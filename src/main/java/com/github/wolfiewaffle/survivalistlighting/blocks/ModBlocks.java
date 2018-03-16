@@ -31,6 +31,9 @@ public class ModBlocks {
 	public static BlockTorchLit torchStoneLit;
 	public static BlockTorchUnlit torchCokeUnlit;
 	public static BlockTorchLit torchCokeLit;
+	public static BlockTorchBurnt torchStoneCokeBurnt;
+	public static BlockTorchUnlit torchStoneCokeUnlit;
+	public static BlockTorchLit torchStoneCokeLit;
 	public static BlockTorchSmoldering torchSmoldering;
 	public static BlockLanternLit lanternLit;
 	public static BlockLanternUnlit lanternUnlit;
@@ -52,28 +55,41 @@ public class ModBlocks {
 		if (SurvivalistLightingConfigTorches.enableStoneTorches) {
 			torchStoneBurnt = registerBlock(new BlockTorchBurnt("torch_stone_burnt"), true);
 			torchStoneUnlit = registerBlock(new BlockTorchUnlit("torch_stone_unlit"), false);
-			torchStoneLit = registerBlock(new BlockTorchLit("torch_stone_lit"), false);		
+			torchStoneLit = registerBlock(new BlockTorchLit("torch_stone_lit"), false);
 
 			torchStoneLit.setBurntVariant(torchStoneBurnt);
 			torchStoneLit.setUnlitVariant(torchStoneUnlit);
 			torchStoneUnlit.setLitVariant(torchStoneLit);
+
+			// Stone Coke Torches
+			if (SurvivalistLightingConfigTorches.enableCokeTorches) {
+				torchStoneCokeUnlit = registerBlock(new BlockTorchUnlit("torch_stone_coke_unlit"), false);
+				torchStoneCokeLit = registerBlock(new BlockTorchLit("torch_stone_coke_lit"), false);
+
+				torchStoneCokeLit.setBurntVariant(torchStoneCokeBurnt);
+				torchStoneCokeLit.setUnlitVariant(torchStoneCokeUnlit);
+				torchStoneCokeUnlit.setLitVariant(torchStoneCokeLit);
+			}
 		}
 
 		// Coke Torches
 		if (SurvivalistLightingConfigTorches.enableCokeTorches) {
 			torchCokeUnlit = registerBlock(new BlockTorchUnlit("torch_coke_unlit"), false);
-			torchCokeLit = registerBlock((BlockTorchLit) (new BlockTorchLit("torch_coke_lit").setLightLevel(1.0F)), false);		
+			torchCokeLit = registerBlock((BlockTorchLit) (new BlockTorchLit("torch_coke_lit").setLightLevel(1.0F)), false);
 
 			torchCokeLit.setBurntVariant(torchBurnt);
 			torchCokeLit.setUnlitVariant(torchCokeUnlit);
 			torchCokeUnlit.setLitVariant(torchCokeLit);
 		}
 
-		//torchSmoldering = registerBlock(new BlockTorchSmoldering(), BlockTorchSmoldering.NAME, true);
+		// torchSmoldering = registerBlock(new BlockTorchSmoldering(),
+		// BlockTorchSmoldering.NAME, true);
 		lanternLit = registerBlock(new BlockLanternLit(), BlockLanternLit.NAME, false);
 		lanternUnlit = registerBlock(new BlockLanternUnlit(), BlockLanternUnlit.NAME, false);
-		//lanternHook = registerBlock(new BlockLanternHook(), BlockLanternHook.NAME, true);
-		//lanternHookUnlit = registerBlock(new BlockLanternHookUnlit(), BlockLanternHookUnlit.NAME, true);
+		// lanternHook = registerBlock(new BlockLanternHook(),
+		// BlockLanternHook.NAME, true);
+		// lanternHookUnlit = registerBlock(new BlockLanternHookUnlit(),
+		// BlockLanternHookUnlit.NAME, true);
 
 		GameRegistry.registerTileEntity(TELantern.class, TELantern.NAME);
 	}

@@ -1,0 +1,25 @@
+{
+    "type": "forge:ore_shaped",
+    "group": "torches",
+    "pattern": [
+        "A",
+        "B"
+    ],
+    "key": {
+        "A": {
+            "type": "forge:ore_dict",
+            "ore": "fuelCoke",
+            "data": 32767
+        },
+        "B": {
+            "type": "forge:ore_dict",
+            "ore": "rodStone",
+            "data": 32767
+        }
+    },
+    "result": {
+        "item": "survivalistlighting:torch_unlit",
+        "data": 0,
+        "count": 1
+    }
+}

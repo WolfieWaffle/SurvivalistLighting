@@ -1,0 +1,13 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+        "textures": {"torch": "survivalistlighting:blocks/torch_stone_coke_lit"}
+    },
+    "variants": {
+        "facing=up": { "model": "torch" },
+        "facing=east": { "model": "torch_wall"},
+        "facing=south": { "model": "torch_wall", "y": 90 },
+        "facing=west": { "model": "torch_wall", "y": 180 },
+        "facing=north": { "model": "torch_wall", "y": 270 }
+    }
+}

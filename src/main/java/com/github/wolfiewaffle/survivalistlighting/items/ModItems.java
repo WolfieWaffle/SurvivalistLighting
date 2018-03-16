@@ -31,6 +31,8 @@ public class ModItems {
 	public static ItemTorchUnlit torchStoneUnlit;
 	public static ItemTorchLit torchCokeLit;
 	public static ItemTorchUnlit torchCokeUnlit;
+	public static ItemTorchLit torchStoneCokeLit;
+	public static ItemTorchUnlit torchStoneCokeUnlit;
 
 	public static void init() {
 		glowstoneCrystal = registerItem(new Item().setUnlocalizedName(SurvivalistLighting.MODID + ".glowstone_crystal").setCreativeTab(CreativeTabs.MATERIALS), "glowstone_crystal");
@@ -48,6 +50,13 @@ public class ModItems {
 			torchStoneLit = registerItem(new ItemTorchLit("torch_stone_lit", ModBlocks.torchStoneLit));
 			torchStoneUnlit = registerItem(new ItemTorchUnlit("torch_stone_unlit", ModBlocks.torchStoneUnlit));
 			torchStoneUnlit.setLitVariant(torchStoneLit);
+
+			// Stone Coke Torches
+			if (SurvivalistLightingConfigTorches.enableCokeTorches) {
+				torchStoneCokeLit = registerItem(new ItemTorchLit("torch_stone_coke_lit", ModBlocks.torchStoneCokeLit));
+				torchStoneCokeUnlit = registerItem(new ItemTorchUnlit("torch_stone_coke_unlit", ModBlocks.torchStoneCokeUnlit));
+				torchStoneCokeUnlit.setLitVariant(torchStoneCokeLit);
+			}
 		}
 
 		// Coke Torches
@@ -55,7 +64,7 @@ public class ModItems {
 			torchCokeLit = registerItem(new ItemTorchLit("torch_coke_lit", ModBlocks.torchCokeLit));
 			torchCokeUnlit = registerItem(new ItemTorchUnlit("torch_coke_unlit", ModBlocks.torchCokeUnlit));
 			torchCokeUnlit.setLitVariant(torchCokeLit);
-		}	
+		}
 	}
 
 	protected static <T extends ItemHardcoreTorch> T registerItem(T itemType) {
