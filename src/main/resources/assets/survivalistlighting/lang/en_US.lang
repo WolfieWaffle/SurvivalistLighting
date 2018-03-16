@@ -8,7 +8,11 @@ tile.survivalistlighting.torch_smoldering.name=Smoldering Torch
 tile.survivalistlighting.torch_burnt.name=Burnt Torch
 tile.survivalistlighting.lantern_lit.name=Lit Lantern
 tile.survivalistlighting.lantern_unlit.name=Unlit Lantern
-
+tile.survivalistlighting.torch_coke_unlit.name=Unlit Coke Torch
+tile.survivalistlighting.torch_coke_lit.name=Lit Coke Torch
+tile.survivalistlighting.torch_stone_unlit.name=Unlit Stone Torch
+tile.survivalistlighting.torch_stone_lit.name=Lit Stone Torch
+tile.survivalistlighting.torch_stone_burnt.name=Burnt Stone Torch
 
 # ITEMS
 item.survivalistlighting.matchbox.name=Matchbox

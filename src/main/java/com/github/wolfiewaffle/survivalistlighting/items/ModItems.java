@@ -29,21 +29,33 @@ public class ModItems {
 	public static ItemTorchUnlit torchUnlit;
 	public static ItemTorchLit torchStoneLit;
 	public static ItemTorchUnlit torchStoneUnlit;
+	public static ItemTorchLit torchCokeLit;
+	public static ItemTorchUnlit torchCokeUnlit;
 
 	public static void init() {
 		glowstoneCrystal = registerItem(new Item().setUnlocalizedName(SurvivalistLighting.MODID + ".glowstone_crystal").setCreativeTab(CreativeTabs.MATERIALS), "glowstone_crystal");
 		oilcan = registerItem(new ItemOilcan(), ItemOilcan.NAME);
 		lanternLit = registerItem(new ItemLanternLit(ModBlocks.lanternLit), "lantern_lit");
 		lanternUnlit = registerItem(new ItemLanternUnlit(ModBlocks.lanternUnlit), "lantern_unlit");
+
+		// Regular Torches
 		torchLit = registerItem(new ItemTorchLit("torch_lit", ModBlocks.torchLit));
 		torchUnlit = registerItem(new ItemTorchUnlit("torch_unlit", ModBlocks.torchUnlit));
 		torchUnlit.setLitVariant(torchLit);
-		if (SurvivalistLightingConfigTorches.enableStoneTorches)
+
+		// Stone Torches
+		if (SurvivalistLightingConfigTorches.enableStoneTorches) {
 			torchStoneLit = registerItem(new ItemTorchLit("torch_stone_lit", ModBlocks.torchStoneLit));
-		if (SurvivalistLightingConfigTorches.enableStoneTorches)
 			torchStoneUnlit = registerItem(new ItemTorchUnlit("torch_stone_unlit", ModBlocks.torchStoneUnlit));
-		if (SurvivalistLightingConfigTorches.enableStoneTorches)
 			torchStoneUnlit.setLitVariant(torchStoneLit);
+		}
+
+		// Coke Torches
+		if (SurvivalistLightingConfigTorches.enableCokeTorches) {
+			torchCokeLit = registerItem(new ItemTorchLit("torch_coke_lit", ModBlocks.torchCokeLit));
+			torchCokeUnlit = registerItem(new ItemTorchUnlit("torch_coke_unlit", ModBlocks.torchCokeUnlit));
+			torchCokeUnlit.setLitVariant(torchCokeLit);
+		}	
 	}
 
 	protected static <T extends ItemHardcoreTorch> T registerItem(T itemType) {
