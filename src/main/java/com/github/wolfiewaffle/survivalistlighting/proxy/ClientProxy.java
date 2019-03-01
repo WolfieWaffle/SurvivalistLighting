@@ -33,7 +33,7 @@ public class ClientProxy extends CommonProxy {
 		registerModel(ModItems.lanternUnlit);
 		registerModel(Item.getItemFromBlock(ModBlocks.torchBurnt));
 		registerModel(Item.getItemFromBlock(ModBlocks.torchLit));
-		registerModel(Item.getItemFromBlock(ModBlocks.torchSmoldering));
+//		registerModel(Item.getItemFromBlock(ModBlocks.torchSmoldering));
 		registerModel(Item.getItemFromBlock(ModBlocks.torchUnlit));
 		registerModel(Item.getItemFromBlock(ModBlocks.torchStoneBurnt));
 		registerModel(Item.getItemFromBlock(ModBlocks.torchStoneLit));

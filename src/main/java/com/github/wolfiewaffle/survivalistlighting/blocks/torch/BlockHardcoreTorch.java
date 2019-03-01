@@ -28,7 +28,7 @@ public class BlockHardcoreTorch extends BlockTorch {
 		if (canBurnout() && world.isRainingAt(pos) && isLit()) {
 			// world.setBlockState(pos, getState(world, pos,
 			// RealisticTorchesBlocks.torchBurnt), 2);
-			extinguish(world, pos, true);
+			extinguish(world, pos, false);
 		} else if (canBurnout() && isLit() && ((Math.random() * SurvivalistLightingConfigTorches.torchBurnoutChance) < 1)) {
 			// world.setBlockState(pos, getState(world, pos,
 			// RealisticTorchesBlocks.torchBurnt), 2);

@@ -71,7 +71,8 @@ public class BlockTorchLit extends BlockHardcoreTorch {
 			if (world.isRainingAt(pos)) {
 				extinguish(world, pos, true);
 			} else {
-				world.scheduleUpdate(pos, this, (int) (burnoutChanceMultiplier * SurvivalistLightingConfigTorches.torchBurnoutChance * 0.9));
+				System.out.println("Hello " + (int) (burnoutChanceMultiplier * SurvivalistLightingConfigTorches.torchBurnoutChance * 0.9));
+//				world.scheduleUpdate(pos, this, (int) (burnoutChanceMultiplier * SurvivalistLightingConfigTorches.torchBurnoutChance * 0.9));
 			}
 		}
 	}
@@ -100,9 +101,10 @@ public class BlockTorchLit extends BlockHardcoreTorch {
 		playExtinguishSound(world, pos);
 		spawnSmokePuff(world, pos);
 		if (!extinguishFully) {
-			world.setBlockState(pos, getState(world, pos, ModBlocks.torchSmoldering), 2);
+			System.out.println("UPDATE TORCH");
+			world.setBlockState(pos, getState(world, pos, unlitVariant), 3);
 		} else {
-			world.setBlockState(pos, getState(world, pos, burntVariant), 2);
+			world.setBlockState(pos, getState(world, pos, burntVariant), 3);
 		}
 	}
 

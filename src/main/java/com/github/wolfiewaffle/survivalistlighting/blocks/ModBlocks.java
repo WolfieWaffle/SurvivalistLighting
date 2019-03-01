@@ -34,7 +34,7 @@ public class ModBlocks {
 	public static BlockTorchBurnt torchStoneCokeBurnt;
 	public static BlockTorchUnlit torchStoneCokeUnlit;
 	public static BlockTorchLit torchStoneCokeLit;
-	public static BlockTorchSmoldering torchSmoldering;
+//	public static BlockTorchSmoldering torchSmoldering;
 	public static BlockLanternLit lanternLit;
 	public static BlockLanternUnlit lanternUnlit;
 	public static BlockLanternHook lanternHook;
