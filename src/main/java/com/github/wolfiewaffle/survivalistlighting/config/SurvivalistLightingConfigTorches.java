@@ -26,7 +26,7 @@ public class SurvivalistLightingConfigTorches {
 		enableStoneTorches = config.get(category, "Enable Stone Torches", true, "Enable/Disable stone torches (Requires rodStone oredict)").getBoolean();
 		enableCokeTorches = config.get(category, "Enable Coke Torches", true, "Enable/Disable coke torches (Requires REPLACE oredict)").getBoolean(); //TODO: Find coal coke oredict
 
-		torchBurnoutChance = config.get(category, "Torch Burnout Chance", 72000, "The chance a torch will burn out").getInt();
+		torchBurnoutChance = config.get(category, "Torch Burnout Chance", 20, "The chance a torch will burn out. Lower is more likely.").getInt();
 		lanternFuel = config.get(category, "Lantern Fuel", 36000, "The amount of ticks a lantern can stay lit for").getInt();
 		oilcanFuel = config.get(category, "Oilcan Fuel", 360000, "The amount of ticks an oilcan can store").getInt();
 	}
