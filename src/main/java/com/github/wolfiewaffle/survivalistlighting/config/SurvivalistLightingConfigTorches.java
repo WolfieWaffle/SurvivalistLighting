@@ -21,7 +21,7 @@ public class SurvivalistLightingConfigTorches {
 		config.setCategoryRequiresMcRestart(category, true);
 
 		enableUnlitParticles = config.get(category, "Enable Unlit Torch Particles", true, "Enable/Disable the smoke particles of unlit torches").getBoolean();
-		enableRelight = config.get(category, "Enable Torch Relight", true, "Enable/Disable torches to drop unlit or burnt variant").getBoolean();
+		enableRelight = config.get(category, "Enable Torch Relight", true, "Enable/Disable torches to drop unlit variant instead of burnt variant").getBoolean();
 		generateLitTorches = config.get(category, "Generate Lit Torches", true, "Enable/Disable replacing all world vanilla torches with lit torches").getBoolean();
 		enableStoneTorches = config.get(category, "Enable Stone Torches", true, "Enable/Disable stone torches (Requires rodStone oredict)").getBoolean();
 		enableCokeTorches = config.get(category, "Enable Coke Torches", true, "Enable/Disable coke torches (Requires REPLACE oredict)").getBoolean(); //TODO: Find coal coke oredict
