@@ -31,6 +31,11 @@ public class ItemTorchUnlit extends ItemHardcoreTorch {
 	public EnumActionResult onItemUseFirst(EntityPlayer player, World world, BlockPos pos, EnumFacing side, float hitX, float hitY, float hitZ, EnumHand hand) {
 		Block block = world.getBlockState(pos).getBlock();
 
+		if (SurvivalistLightingConfigTorches.lighterBlocks.contains(block.getRegistryName().toString())) {
+			lightTorch(player, hand);
+			return EnumActionResult.SUCCESS;
+		}
+
 		if (Loader.isModLoaded("toughasnails")) {
 			if (block == TANBlocks.campfire) {
 				if (world.getBlockState(pos).getValue(BlockTANCampfire.BURNING)) {

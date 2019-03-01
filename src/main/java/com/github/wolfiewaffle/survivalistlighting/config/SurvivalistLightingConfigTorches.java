@@ -1,5 +1,8 @@
 package com.github.wolfiewaffle.survivalistlighting.config;
 
+import java.util.Arrays;
+import java.util.List;
+
 import net.minecraftforge.common.config.Configuration;
 
 public class SurvivalistLightingConfigTorches {
@@ -14,6 +17,8 @@ public class SurvivalistLightingConfigTorches {
 	public static int torchBurnoutChance;
 	public static int lanternFuel;
 	public static int oilcanFuel;
+
+	public static List<String> lighterBlocks;
 
 	public static void load(Configuration config) {
 		String category = "Torch Settings";
@@ -31,6 +36,8 @@ public class SurvivalistLightingConfigTorches {
 		torchBurnoutChance = config.get(category, "Torch Burnout Chance", 20, "The chance a torch will burn out. Lower is more likely.").getInt();
 		lanternFuel = config.get(category, "Lantern Fuel", 36000, "The amount of ticks a lantern can stay lit for").getInt();
 		oilcanFuel = config.get(category, "Oilcan Fuel", 360000, "The amount of ticks an oilcan can store").getInt();
+
+		lighterBlocks = Arrays.asList(config.get(category, "Lighter Blocks", new String[]{"minecraft:torch", "survivalistlighting:torch_lit", "survivalistlighting:coke_torch_lit"}, "Blocks that you can right click to light a torch").getStringList());
 	}
 
 }
