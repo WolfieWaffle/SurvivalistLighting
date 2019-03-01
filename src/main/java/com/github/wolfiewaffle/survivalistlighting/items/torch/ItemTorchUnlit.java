@@ -1,7 +1,10 @@
 package com.github.wolfiewaffle.survivalistlighting.items.torch;
 
+import com.github.wolfiewaffle.survivalistlighting.config.SurvivalistLightingConfigTorches;
+
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumFacing;
@@ -35,6 +38,13 @@ public class ItemTorchUnlit extends ItemHardcoreTorch {
 					return EnumActionResult.SUCCESS;
 				}
 			}
+		}
+
+		Block block2 = world.getBlockState(pos.offset(side)).getBlock();
+
+		if (block2 == Blocks.FIRE && SurvivalistLightingConfigTorches.lightFromFire) {
+			lightTorch(player, hand);
+			return EnumActionResult.SUCCESS;
 		}
 
 		return super.onItemUseFirst(player, world, pos, side, hitX, hitY, hitZ, hand);

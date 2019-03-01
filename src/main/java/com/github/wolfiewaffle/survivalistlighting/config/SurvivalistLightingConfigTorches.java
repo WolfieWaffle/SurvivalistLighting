@@ -9,6 +9,7 @@ public class SurvivalistLightingConfigTorches {
 	public static boolean generateLitTorches;
 	public static boolean enableStoneTorches;
 	public static boolean enableCokeTorches;
+	public static boolean lightFromFire;
 
 	public static int torchBurnoutChance;
 	public static int lanternFuel;
@@ -25,6 +26,7 @@ public class SurvivalistLightingConfigTorches {
 		generateLitTorches = config.get(category, "Generate Lit Torches", true, "Enable/Disable replacing all world vanilla torches with lit torches").getBoolean();
 		enableStoneTorches = config.get(category, "Enable Stone Torches", true, "Enable/Disable stone torches (Requires rodStone oredict)").getBoolean();
 		enableCokeTorches = config.get(category, "Enable Coke Torches", true, "Enable/Disable coke torches (Requires REPLACE oredict)").getBoolean(); //TODO: Find coal coke oredict
+		lightFromFire = config.get(category, "Light Torches From Fire", true, "Enable/Disable lighting a torch by right-clicking on fire").getBoolean();
 
 		torchBurnoutChance = config.get(category, "Torch Burnout Chance", 20, "The chance a torch will burn out. Lower is more likely.").getInt();
 		lanternFuel = config.get(category, "Lantern Fuel", 36000, "The amount of ticks a lantern can stay lit for").getInt();
