@@ -69,7 +69,7 @@ public class BlockTorchLit extends BlockHardcoreTorch {
 	public void onBlockAdded(World world, BlockPos pos, IBlockState state) {
 		if (canBurnout()) {
 			if (world.isRainingAt(pos)) {
-				extinguish(world, pos, true);
+				extinguish(world, pos, false);
 			} else {
 //				world.scheduleUpdate(pos, this, (int) (burnoutChanceMultiplier * SurvivalistLightingConfigTorches.torchBurnoutChance * 0.9));
 			}
