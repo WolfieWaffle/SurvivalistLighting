@@ -9,11 +9,13 @@
         "A": {
             "type": "forge:ore_dict",
             "ore": "fuelCoke",
-            "data": 32767
+            "data": 32767,
+            "count": 1
         },
         "B": {
-            "item": "minecraft:stick",
-            "data": 0,
+            "type": "forge:ore_dict",
+            "ore": "stickWood",
+            "data": 32767,
             "count": 1
         }
     },

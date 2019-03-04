@@ -9,16 +9,18 @@
         "A": {
             "type": "forge:ore_dict",
             "ore": "fuelCoke",
-            "data": 32767
+            "data": 32767,
+            "count": 1
         },
         "B": {
             "type": "forge:ore_dict",
             "ore": "rodStone",
-            "data": 32767
+            "data": 32767,
+            "count": 1
         }
     },
     "result": {
-        "item": "survivalistlighting:torch_unlit",
+        "item": "survivalistlighting:torch_stone_coke_unlit",
         "data": 0,
         "count": 1
     }

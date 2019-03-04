@@ -8,13 +8,14 @@
     "key": {
         "A": {
             "item": "minecraft:coal",
-            "data": 0,
+            "data": 32767,
             "count": 1
         },
         "B": {
             "type": "forge:ore_dict",
             "ore": "rodStone",
-            "data": 32767
+            "data": 32767,
+            "count": 1
         }
     },
     "result": {
